@@ -20,8 +20,8 @@ postData(`https://api.storyy.io/getStories?clientCode=${clientCode}`, {}).then(
   (data) => {
     data.forEach((element) => {
       //console.log(element);
-      let layout = document.querySelector(".grid_testing");
-      let card = document.querySelector(".testing");
+      let layout = document.querySelector(".layout");
+      let card = document.querySelector(".card");
       let newcard = card.cloneNode(true);
       newcard.style.display = "flex";
       newcard.href = element["redirectUrl"];
@@ -29,6 +29,8 @@ postData(`https://api.storyy.io/getStories?clientCode=${clientCode}`, {}).then(
       image.src = element["mediaUrl"];
       let title = newcard.querySelector(".title");
       title.innerHTML = element["title"];
+      let subtitle = newcard.querySelector(".subtitle");
+      subtitle.innerHTML = element["subtitle"];
       let details = newcard.querySelector(".details");
       details.innerHTML = element["body"];
       layout.appendChild(newcard);
