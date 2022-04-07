@@ -14,7 +14,7 @@ async function postData(url = "", data = {}) {
   });
   return response.json();
 }
-const clientCode = "615ABC";
+const clientCode = window.clientCode;
 
 postData(`https://api.storyy.io/getStories?clientCode=${clientCode}`, {}).then(
   (data) => {
